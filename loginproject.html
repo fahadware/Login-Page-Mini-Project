@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN (for demo, use npm in production) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            colors: {
+              dark: '#16202a',
+              accent: '#7bb6f7',
+              cyan: '#00fff0',
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      .login-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        transition: all 0.5s ease;
+        background: rgba(255,255,255,0.18);
+        box-shadow: 0 8px 32px rgba(30,60,114,0.18), 0 1.5px 6px rgba(0,0,0,0.08);
+        border: 2.5px solid rgba(255,255,255,0.7);
+        backdrop-filter: blur(18px) saturate(180%);
+        -webkit-backdrop-filter: blur(18px) saturate(180%);
+        width: 370px;
+        height: auto;
+        padding: 20px 20px 16px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        border-color: rgba(255,255,255,0.7);
+      }
+      .login-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(0deg, transparent, transparent 30%, rgba(0,255,255,0.3));
+        transform: rotate(-45deg);
+        transition: all 0.5s ease;
+        opacity: 0;
+        z-index: 1;
+      }
+      .login-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0,255,255,0.5);
+      }
+      .login-card:hover::before {
+        opacity: 1;
+        transform: rotate(-45deg) translateY(100%);
+      }
+      .login-card > * {
+        position: relative;
+        z-index: 2;
+      }
+      /* Nav link double line hover effect */
+      .navbar .menu a {
+        position: relative;
+        display: inline-block;
+      }
+      .navbar .menu a::after,
+      .navbar .menu a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, #7bb6f7, #00fff0, #16202a);
+        left: 0;
+        transform: scaleX(0);
+        transition: transform 0.4s ease-out;
+      }
+      .navbar .menu a::after {
+        bottom: -5px;
+        transform-origin: right;
+      }
+      .navbar .menu a::before {
+        top: -5px;
+        transform-origin: left;
+      }
+      .navbar .menu a:hover::after,
+      .navbar .menu a:hover::before {
+        transform: scaleX(1);
+      }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body class="font-poppins min-h-screen bg-cover bg-center" style="background-image: url('./forest.jpg')">
+    <div class="navbar w-full bg-dark/35 shadow-lg border-b-2 border-white/20 backdrop-blur-md flex items-center justify-between px-12 h-[65px] box-border">
+        <div class="logo flex items-center gap-3 text-white text-2xl font-bold tracking-wide">
+          <h2 class="text-white text-2xl font-bold tracking-wide"> Tailwind</h2>
+          <img src="./tail.png" alt=" Logo" class="w-11 h-11 rounded-full object-cover">
+        </div>
+        <div class="menu flex gap-9 ml-[700px]">
+            <a href="#" class="text-white no-underline text-lg font-semibold">Home</a>
+            <a href="#" class="text-white no-underline text-lg font-semibold">About</a>
+            <a href="#" class="text-white no-underline text-lg font-semibold">Services</a>
+            <a href="#" class="text-white no-underline text-lg font-semibold">Contact</a>
+        </div>
+        <button class="login-btn border-2 border-white bg-transparent text-white text-lg font-semibold rounded-full px-7 py-1.5 cursor-pointer transition-colors duration-200 hover:bg-white hover:text-dark">Login</button>
+    </div>
+    <div class="container min-h-[calc(100vh-64px)] flex items-center justify-center">
+        <div class="login-card">
+            <img src="https://img.freepik.com/free-icon/user_318-159711.jpg" alt="Login Icon" class="block mx-auto mb-2 max-w-[80px] w-[80px]">
+            <button class="close-btn absolute top-0 right-0 mt-3 mr-4 bg-dark text-white border-none rounded-bl-2xl text-2xl w-10 h-10 flex items-center justify-center cursor-not-allowed z-10">&times;</button>
+            <div class="login-title text-dark text-center text-3xl font-bold mb-8 mt-2">Login</div>
+            <form>
+                <div class="form-group mb-4 relative">
+                    <label for="email" class="text-dark font-semibold text-base mb-1 block">Email</label>
+                    <input id="email" type="email" placeholder="" class="w-full bg-transparent border-0 border-b-2 border-dark text-dark text-base py-2 pr-9 pl-0 outline-none mb-0 placeholder:text-gray-400">
+                    <span class="input-icon absolute right-3 top-9 text-dark text-base opacity-70"><i class="fa-regular fa-envelope"></i></span>
+                </div>
+                <div class="form-group mb-4 relative">
+                    <label for="password" class="text-dark font-semibold text-base mb-1 block">Password</label>
+                    <input id="password" type="password" placeholder="" class="w-full bg-transparent border-0 border-b-2 border-dark text-dark text-base py-2 pr-9 pl-0 outline-none mb-0 placeholder:text-gray-400">
+                    <span class="input-icon absolute right-3 top-9 text-dark text-base opacity-70"><i class="fa-solid fa-lock"></i></span>
+                </div>
+                <div class="options-row flex items-center justify-start mb-4 text-sm">
+                    <input type="checkbox" id="remember" class="mr-1 accent-dark">
+                    <label for="remember" class="m-0 mr-2 font-medium text-dark text-sm">Remember me</label>
+                    <a href="#" class="forgot-link ml-auto text-dark font-semibold no-underline transition-colors duration-200 hover:text-black hover:underline">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-btn-main w-full bg-dark text-white border-none rounded-md py-2 text-lg font-bold mt-2 mb-3 cursor-pointer transition-colors duration-200 hover:bg-[#22344a]">Login</button>
+                <div class="register-link text-center text-dark text-base font-medium mb-2">Don't have an account? <a href="#" class="text-dark font-bold no-underline ml-1 transition-colors duration-200 hover:text-black hover:underline">Signup</a></div>
+                <div class="social-login-divider flex items-center justify-center text-center my-2 text-dark font-semibold text-base">
+                    <span class="flex items-center relative font-light mx-2 text-dark text-base before:content-[''] before:inline-block before:align-middle before:w-[100px] before:h-px before:bg-gray-400 before:mx-2 after:content-[''] after:inline-block after:align-middle after:w-[100px] after:h-px after:bg-gray-400 after:mx-2">or login with</span>
+                </div>
+                <div class="social-login-buttons flex justify-center gap-4 mb-1">
+                    <a href="#" class="social-btn google flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#db4437] text-xl shadow-md border border-gray-200 transition-all duration-200 cursor-pointer no-underline hover:scale-110 hover:shadow-lg hover:border-accent hover:bg-blue-50" title="Login with Google"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-btn github flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#333] text-xl shadow-md border border-gray-200 transition-all duration-200 cursor-pointer no-underline hover:scale-110 hover:shadow-lg hover:border-accent hover:bg-blue-50" title="Login with GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-btn facebook flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#1877f3] text-xl shadow-md border border-gray-200 transition-all duration-200 cursor-pointer no-underline hover:scale-110 hover:shadow-lg hover:border-accent hover:bg-blue-50" title="Login with Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
