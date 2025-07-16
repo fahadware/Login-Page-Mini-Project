@@ -12,9 +12,7 @@ project-root/
 ├── tail.png # Logo image
 └── README.md # Project README
 
-yaml
-Copy
-Edit
+
 
 ---
 
@@ -56,8 +54,7 @@ tailwind.config = {
     },
   },
 }
-📸 Preview
-Add a screenshot here (e.g., ./screenshot.png)
+
 
 🚀 How to Use
 Clone or download this repository.
