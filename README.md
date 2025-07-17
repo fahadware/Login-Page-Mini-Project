@@ -7,9 +7,13 @@ A modern, responsive login page built using **Tailwind CSS** and **Font Awesome*
 ## 📁 Project Structure
 
 project-root/
+
 ├── index.html # Main HTML file
+
 ├── forest.jpg # Background image
+
 ├── tail.png # Logo image
+
 └── README.md # Project README
 
 
@@ -56,7 +60,7 @@ tailwind.config = {
 }
 
 
-🚀 How to Use
+ How to Use
 Clone or download this repository.
 
 Open index.html in your browser.
